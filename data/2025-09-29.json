@@ -24,5 +24,31 @@
     "lucky_color": "Verde oliva",
     "lucky_number": 4,
     "mantra": "Estoy enraizada en la calma."
-  }
-}
+  },
+    "geminis": {
+      "title": "Curiosidad brillante",
+      "one_liner": "Tu mente está inquieta y abierta a nuevas ideas.",
+      "sections": {
+        "love": "Una conversación ligera puede acercarte más a alguien.",
+        "work": "Es buen día para proponer una idea espontánea.",
+        "energy": "Escribe tus pensamientos para liberar tu cabeza.",
+        "nervous_system_tip": "Haz pausas de respiración entre llamadas o mensajes."
+      },
+      "lucky_color": "Amarillo suave",
+      "lucky_number": 5,
+      "mantra": "Fluyo con las palabras que me inspiran."
+    },
+    "cancer": {
+      "title": "Refugio en lo familiar",
+      "one_liner": "Hoy la calma viene de lo que ya conoces.",
+      "sections": {
+        "love": "Un detalle hogareño nutre tu relación.",
+        "work": "Pon atención a las emociones en tu equipo.",
+        "energy": "Cocinar algo casero te dará bienestar.",
+        "nervous_system_tip": "Abrázate fuerte durante un minuto para sentir contención."
+      },
+      "lucky_color": "Plateado",
+      "lucky_number": 2,
+      "mantra": "Mi hogar interior siempre me sostiene."
+    }
+ }
