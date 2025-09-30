@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mi Horóscopo Hoy</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <!-- TODO (Analytics): aquí pegaremos luego el script de Umami o Cloudflare -->
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Mi Horóscopo Hoy <span class="tag">MVP</span></h1>
+      <a class="btn" href="about.html">Acerca de</a>
+    </header>
+
+    <p class="small">Selecciona tu signo para ver el horóscopo de hoy (demo con datos de prueba).</p>
+    <div class="hr"></div>
+
+    <section class="grid" id="sign-grid"></section>
+
+    <footer class="footer">
+      © <span id="y"></span> MiHoroscopoHoy.com · Solo entretenimiento · Sin consejos médicos/financieros
+    </footer>
+  </div>
+
+  <script>
+    // Lista de signos (slug, nombre, emoji)
+    const SIGNS = [
+      ["aries","Aries","♈️"],["tauro","Tauro","♉️"],["geminis","Géminis","♊️"],["cancer","Cáncer","♋️"],
+      ["leo","Leo","♌️"],["virgo","Virgo","♍️"],["libra","Libra","♎️"],["escorpio","Escorpio","♏️"],
+      ["sagitario","Sagitario","♐️"],["capricornio","Capricornio","♑️"],["acuario","Acuario","♒️"],["piscis","Piscis","♓️"]
+    ];
+    const grid = document.getElementById('sign-grid');
+    SIGNS.forEach(([slug,name,emo])=>{
+      const a = document.createElement('a');
+      a.href = `signo.html?s=${slug}`;
+      a.className = 'card';
+      a.innerHTML = `<div style="font-size:28px">${emo}</div>
+                     <div style="font-weight:600">${name}</div>
+                     <div class="badge">Ver hoy →</div>`;
+      grid.appendChild(a);
+    });
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
