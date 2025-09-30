@@ -1,0 +1,28 @@
+{
+  "aries": {
+    "title": "Un inicio con chispa",
+    "one_liner": "Hoy tu energía abre caminos nuevos.",
+    "sections": {
+      "love": "Pequeños gestos cuentan más que grandes palabras.",
+      "work": "Tu creatividad te ayuda a resolver un problema rápido.",
+      "energy": "Caminar 10 minutos al sol te recargará.",
+      "nervous_system_tip": "Respira profundo 3 veces antes de contestar mensajes."
+    },
+    "lucky_color": "Rojo intenso",
+    "lucky_number": 7,
+    "mantra": "Confío en mi impulso."
+  },
+  "tauro": {
+    "title": "Calma fértil",
+    "one_liner": "Lo estable hoy será tu mejor refugio.",
+    "sections": {
+      "love": "Alguien cercano agradece tu paciencia.",
+      "work": "Pon orden en lo pequeño, eso te dará claridad.",
+      "energy": "Un té caliente antes de dormir te equilibra.",
+      "nervous_system_tip": "Haz una pausa para sentir tus pies firmes en el suelo."
+    },
+    "lucky_color": "Verde oliva",
+    "lucky_number": 4,
+    "mantra": "Estoy enraizada en la calma."
+  }
+}
