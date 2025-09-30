@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Acerca de · Mi Horóscopo Hoy</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <a class="btn" href="index.html">← Inicio</a>
+    </div>
+    <article class="card">
+      <h2 class="title">Acerca de</h2>
+      <p>MiHoroscopoHoy.com es un proyecto MVP para ofrecer horóscopos diarios con ayuda de IA, escritos con un tono cálido y práctico.</p>
+      <p class="small">Solo entretenimiento. No es consejo médico, legal ni financiero.</p>
+    </article>
+    <footer class="footer">© <span id="y"></span> MiHoroscopoHoy.com</footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
