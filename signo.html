@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Horóscopo</title>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <a class="btn" href="index.html">← Volver</a>
+      <div class="small" id="date"></div>
+    </div>
+
+    <article class="card" id="content">
+      Cargando…
+    </article>
+
+    <footer class="footer">
+      © <span id="y"></span> MiHoroscopoHoy.com
+    </footer>
+  </div>
+
+  <script>
+    // 1) Obtener el signo desde la URL (?s=aries)
+    const params = new URLSearchParams(location.search);
+    const sign = (params.get('s') || '').toLowerCase();
+
+    // 2) Mapa para normalizar slugs del JSON demo
+    // (tenemos "aries" y "tauro" en el JSON de prueba)
+    const NORMALIZE = {
+      'aries':'aries',
+      'tauro':'tauro',
+      'géminis':'geminis','geminis':'geminis',
+      'cáncer':'cancer','cancer':'cancer',
+      'leo':'leo','virgo':'virgo','libra':'libra',
+      'escorpio':'escorpio','sagitario':'sagitario',
+      'capricornio':'capricornio','acuario':'acuario','piscis':'piscis'
+    };
+
+    const DISPLAY = {
+      'aries':['Aries','♈️'],'tauro':['Tauro','♉️'],'geminis':['Géminis','♊️'],
+      'cancer':['Cáncer','♋️'],'leo':['Leo','♌️'],'virgo':['Virgo','♍️'],
+      'libra':['Libra','♎️'],'escorpio':['Escorpio','♏️'],'sagitario':['Sagitario','♐️'],
+      'capricornio':['Capricornio','♑️'],'acuario':['Acuario','♒️'],'piscis':['Piscis','♓️']
+    };
+
+    const slug = NORMALIZE[sign];
+    const [name, emoji] = DISPLAY[slug] || ['Signo','⭐'];
+
+    // 3) Mostrar fecha (hoy) y año en footer
+    const today = new Date();
+    document.getElementById('date').textContent =
+      today.toLocaleDateString('es-MX',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    document.getElementById('y').textContent = today.getFullYear();
+
+    // 4) Cargar el JSON de prueba (fecha fija por ahora)
+    const DATA_FILE = 'data/2025-09-29.json';
+
+    fetch(DATA_FILE).then(r => r.json()).then(data => {
+      const d = data[slug];
+      const el = document.getElementById('content');
+
+      if (!d) {
+        el.innerHTML = `<h2 class="title">${emoji} ${name}</h2>
+                        <p class="small">Aún no hay texto demo para este signo. Prueba con Aries o Tauro 🙂</p>`;
+        return;
+      }
+
+      el.innerHTML = `
+        <h2 class="title">${emoji} ${name}</h2>
+        <p class="small">${d.one_liner}</p>
+        <div class="hr"></div>
+        <p><strong>Amor:</strong> ${d.sections.love}</p>
+        <p><strong>Trabajo:</strong> ${d.sections.work}</p>
+        <p><strong>Energía:</strong> ${d.sections.energy}</p>
+        <p><strong>Tip sistema nervioso:</strong> ${d.sections.nervous_system_tip}</p>
+        <div class="hr"></div>
+        <p class="small">Color de la suerte: <strong>${d.lucky_color}</strong> · Número: <strong>${d.lucky_number}</strong></p>
+        <p class="small"><em>Mantra:</em> “${d.mantra}”</p>
+      `;
+    }).catch(() => {
+      document.getElementById('content').textContent = 'No se pudo cargar el archivo de datos.';
+    });
+  </script>
+</body>
+</html>
